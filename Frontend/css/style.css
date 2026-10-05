@@ -1,0 +1,1692 @@
+/* ==============================
+   NEXORA — BASE DESIGN
+================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: #070812;
+    color: #f5f7ff;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+
+/* Background glow */
+
+body::before {
+    content: "";
+    position: fixed;
+
+    width: 550px;
+    height: 550px;
+
+    top: -250px;
+    left: -180px;
+
+    background: radial-gradient(
+        circle,
+        rgba(110, 90, 255, 0.20),
+        transparent 70%
+    );
+
+    filter: blur(40px);
+
+    pointer-events: none;
+
+    z-index: -1;
+}
+
+
+body::after {
+    content: "";
+    position: fixed;
+
+    width: 600px;
+    height: 600px;
+
+    right: -250px;
+    bottom: -300px;
+
+    background: radial-gradient(
+        circle,
+        rgba(0, 200, 255, 0.12),
+        transparent 70%
+    );
+
+    filter: blur(50px);
+
+    pointer-events: none;
+
+    z-index: -1;
+}
+
+
+/* ==============================
+   NAVIGATION BAR
+================================ */
+
+.navbar {
+    width: 92%;
+    max-width: 1250px;
+
+    margin: 24px auto 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 14px 18px 14px 22px;
+
+    background: rgba(255, 255, 255, 0.045);
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    border-radius: 18px;
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+}
+
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+
+.logo-mark {
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+
+    background: linear-gradient(
+        135deg,
+        #7667ff,
+        #3edcff
+    );
+
+    color: white;
+
+    font-size: 20px;
+    font-weight: 800;
+
+    box-shadow:
+        0 0 25px rgba(105, 90, 255, 0.35);
+}
+
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.logo-name {
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+
+.logo-tagline {
+    font-size: 7px;
+    letter-spacing: 2px;
+
+    color: rgba(255, 255, 255, 0.45);
+
+    margin-top: 2px;
+}
+
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 38px;
+}
+
+
+.nav-links a {
+    color: rgba(255, 255, 255, 0.65);
+
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 500;
+
+    transition: 0.3s ease;
+}
+
+
+.nav-links a:hover {
+    color: #ffffff;
+}
+
+
+.get-started {
+    border: none;
+
+    padding: 11px 20px;
+
+    border-radius: 12px;
+
+    background: #ffffff;
+
+    color: #080912;
+
+    font-family: inherit;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+
+.get-started:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 25px rgba(255, 255, 255, 0.12);
+}
+
+
+/* ==============================
+   HERO SECTION
+================================ */
+
+.hero {
+    width: 92%;
+    max-width: 1250px;
+
+    /*
+       IMPORTANT:
+       No fixed height.
+       The Hero grows automatically
+       when the PDF summary appears.
+    */
+
+    min-height: 680px;
+
+    margin: 0 auto;
+
+    padding-top: 70px;
+    padding-bottom: 100px;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 80px;
+
+    position: relative;
+}
+
+
+/* Small separator under Hero */
+
+.hero::after {
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+    bottom: 25px;
+
+    width: 70%;
+    height: 1px;
+
+    transform: translateX(-50%);
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(130, 115, 255, 0.35),
+        transparent
+    );
+}
+
+
+.hero-content {
+    max-width: 650px;
+
+    width: 100%;
+}
+
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+
+    padding: 8px 14px;
+
+    border-radius: 50px;
+
+    background: rgba(118, 103, 255, 0.10);
+
+    border: 1px solid rgba(118, 103, 255, 0.20);
+
+    color: #a9a1ff;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+
+    margin-bottom: 24px;
+}
+
+
+.hero h1 {
+    font-size: clamp(48px, 6vw, 82px);
+
+    line-height: 1.02;
+
+    letter-spacing: -3px;
+
+    font-weight: 800;
+
+    color: #f7f7ff;
+}
+
+
+.hero h1 span {
+  background: linear-gradient(
+    90deg,
+    #8ee2ff,
+    #50dfff
+  );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-description {
+    max-width: 570px;
+
+    margin-top: 26px;
+
+    color: rgba(255, 255, 255, 0.55);
+
+    font-size: 16px;
+
+    line-height: 1.8;
+}
+
+
+/* ==============================
+   HERO BUTTONS
+================================ */
+
+.hero-buttons {
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    margin-top: 34px;
+}
+
+
+.primary-button,
+.secondary-button {
+    padding: 14px 20px;
+
+    border-radius: 13px;
+
+    font-family: inherit;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+
+.primary-button {
+    border: none;
+
+    background: linear-gradient(
+        135deg,
+        #7667ff,
+        #4fddff
+    );
+
+    color: white;
+
+    box-shadow:
+        0 10px 35px rgba(103, 91, 255, 0.25);
+}
+
+
+.secondary-button {
+    background: rgba(255, 255, 255, 0.04);
+
+    border: 1px solid rgba(255, 255, 255, 0.10);
+
+    color: rgba(255, 255, 255, 0.80);
+}
+
+
+.primary-button:hover,
+.secondary-button:hover {
+    transform: translateY(-3px);
+}
+
+
+/*
+   The actual file input is hidden.
+   JavaScript opens it when the PDF button
+   is clicked.
+*/
+
+#pdfInput {
+    display: none;
+}
+
+
+/* ==============================
+   PDF SUMMARY
+================================ */
+
+#summary {
+    width: 100%;
+
+    max-width: 650px;
+
+    margin-top: 25px;
+
+    position: relative;
+
+    z-index: 5;
+}
+
+
+.summary-card {
+    width: 100%;
+
+    max-width: 650px;
+
+    min-height: 220px;
+
+    max-height: 450px;
+
+    margin: 0 auto;
+
+    padding: 24px 28px;
+
+    border-radius: 16px;
+
+    background: #ffffff;
+
+    border: 1px solid #dddddd;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.20);
+
+    box-sizing: border-box;
+
+    position: relative;
+
+    z-index: 5;
+
+    overflow: hidden;
+}
+
+
+.summary-header {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-bottom: 16px;
+}
+
+
+.summary-header h2 {
+    margin: 0;
+
+    font-size: 23px;
+
+    color: #222222;
+}
+
+
+.summary-icon {
+    font-size: 23px;
+}
+
+
+/*
+   Only the summary text scrolls.
+   The entire card stays a fixed size.
+*/
+
+.summary-content {
+    max-height: 350px;
+
+    overflow-y: auto;
+
+    padding-right: 15px;
+
+    font-size: 15px;
+
+    line-height: 1.7;
+
+    color: #222222;
+}
+
+
+.summary-content p {
+    margin: 0;
+
+    color: #222222;
+
+    white-space: pre-line;
+}
+
+
+/* Scrollbar */
+
+.summary-content::-webkit-scrollbar {
+    width: 6px;
+}
+
+
+.summary-content::-webkit-scrollbar-track {
+    background: #eeeeee;
+
+    border-radius: 10px;
+}
+
+
+.summary-content::-webkit-scrollbar-thumb {
+    background: #aaaaff;
+
+    border-radius: 10px;
+}
+
+
+/* ==============================
+   ISHA AI ASSISTANT
+================================ */
+
+.isha-area {
+    position: relative;
+
+    width: 380px;
+
+    min-width: 380px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+}
+
+
+.isha-glow {
+    position: absolute;
+
+    width: 300px;
+    height: 300px;
+
+    background: radial-gradient(
+        circle,
+        rgba(117, 103, 255, 0.28),
+        transparent 70%
+    );
+
+    filter: blur(35px);
+
+    z-index: -1;
+}
+
+
+.isha-card {
+    width: 100%;
+
+    padding: 22px;
+
+    background: rgba(255, 255, 255, 0.055);
+
+    border: 1px solid rgba(255, 255, 255, 0.10);
+
+    border-radius: 28px;
+
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.35);
+
+    text-align: center;
+}
+
+
+.isha-header {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding-bottom: 18px;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+
+    font-size: 14px;
+
+    font-weight: 600;
+}
+
+
+.isha-status {
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+
+    background: #5df2a5;
+
+    box-shadow:
+        0 0 12px rgba(93, 242, 165, 0.8);
+}
+
+
+.online-text {
+    margin-left: auto;
+
+    font-size: 11px;
+
+    color: rgba(255, 255, 255, 0.40);
+}
+
+
+.robot-container {
+    height: 220px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+
+/* Robot face */
+
+.robot-face {
+    width: 155px;
+    height: 155px;
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: linear-gradient(
+        145deg,
+        #1b1b3a,
+        #29275a
+    );
+
+    border-radius: 48px;
+
+    border: 2px solid rgba(255, 255, 255, 0.14);
+
+    box-shadow:
+        0 15px 40px rgba(80, 70, 255, 0.35),
+        inset 0 0 30px rgba(100, 90, 255, 0.12);
+
+    overflow: hidden;
+}
+
+
+/* Robot eyes */
+
+.robot-face::before {
+    content: "●     ●";
+
+    position: absolute;
+
+    top: 48px;
+
+    color: #ffffff;
+
+    font-size: 22px;
+
+    letter-spacing: 2px;
+
+    text-shadow:
+        0 0 8px rgba(255, 255, 255, 0.9),
+        0 0 18px rgba(80, 220, 255, 0.8);
+}
+
+
+/* Robot smile */
+
+.robot-face::after {
+    content: "";
+
+    position: absolute;
+
+    width: 38px;
+    height: 18px;
+
+    bottom: 38px;
+
+    border-bottom: 4px solid #ffffff;
+
+    border-radius: 0 0 30px 30px;
+
+    box-shadow:
+        0 4px 12px rgba(80, 220, 255, 0.45);
+}
+
+
+.isha-message h3 {
+    font-size: 18px;
+
+    margin-bottom: 8px;
+}
+
+
+.isha-message p {
+    color: rgba(255, 255, 255, 0.50);
+
+    font-size: 13px;
+
+    line-height: 1.6;
+}
+
+
+/* ==============================
+   CTA SECTION
+================================ */
+
+.cta-section {
+    width: 92%;
+
+    max-width: 1100px;
+
+    /*
+       IMPORTANT:
+       The old CSS had:
+
+       margin: -140px auto 40px;
+
+       That pulled the CTA upward and
+       caused it to overlap the PDF summary.
+
+       We now use positive spacing.
+    */
+
+    margin: 40px auto 80px;
+
+    padding: 70px 40px;
+
+    text-align: center;
+
+    background: rgba(255, 255, 255, 0.045);
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    border-radius: 30px;
+
+    position: relative;
+
+    z-index: 1;
+
+    overflow: hidden;
+}
+
+
+.cta-content {
+    position: relative;
+
+    z-index: 1;
+}
+
+
+.cta-section h2 {
+    font-size: 48px;
+
+    line-height: 1.1;
+
+    letter-spacing: -2px;
+
+    margin-bottom: 18px;
+}
+
+
+.cta-section h2 span {
+    background: linear-gradient(
+        90deg,
+        #8e82ff,
+        #50dfff
+    );
+
+    -webkit-background-clip: text;
+background-clip: text;
+-webkit-text-fill-color: transparent;
+}
+
+
+.cta-section p {
+    max-width: 550px;
+
+    margin: 0 auto 30px;
+
+    color: rgba(255, 255, 255, 0.50);
+
+    font-size: 14px;
+
+    line-height: 1.7;
+}
+
+
+.cta-button {
+    border: none;
+
+    padding: 14px 25px;
+
+    border-radius: 13px;
+
+    background: linear-gradient(
+        135deg,
+        #7667ff,
+        #4fddff
+    );
+
+    color: white;
+
+    font-family: inherit;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+
+.cta-button:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 12px 35px rgba(100, 90, 255, 0.25);
+}
+
+
+/* ==============================
+   HOW IT WORKS
+================================ */
+
+.how-it-works {
+    width: 92%;
+
+    max-width: 1050px;
+
+    margin: 40px auto;
+
+    padding: 70px 0 30px;
+}
+
+
+.section-heading {
+    max-width: 650px;
+
+    margin-bottom: 50px;
+}
+
+
+.section-label {
+    display: inline-block;
+
+    margin-bottom: 15px;
+
+    color: #8f84ff;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+
+.section-heading h2 {
+    font-size: 42px;
+
+    line-height: 1.15;
+
+    letter-spacing: -1.5px;
+
+    margin-bottom: 18px;
+}
+
+
+.section-heading p {
+    color: rgba(255, 255, 255, 0.50);
+
+    font-size: 15px;
+
+    line-height: 1.8;
+}
+
+
+.steps-container {
+    margin-top: 55px;
+}
+
+
+.step {
+    display: flex;
+
+    align-items: center;
+
+    gap: 30px;
+
+    padding: 25px 0;
+}
+
+
+.step-number {
+    min-width: 65px;
+
+    height: 65px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 20px;
+
+    background: rgba(118, 103, 255, 0.10);
+
+    border: 1px solid rgba(118, 103, 255, 0.20);
+
+    color: #9d94ff;
+
+    font-size: 14px;
+
+    font-weight: 700;
+}
+
+
+.step-content h3 {
+    font-size: 19px;
+
+    margin-bottom: 8px;
+}
+
+
+.step-content p {
+    max-width: 650px;
+
+    color: rgba(255, 255, 255, 0.48);
+
+    font-size: 14px;
+
+    line-height: 1.7;
+}
+
+
+.step-line {
+    width: 1px;
+
+    height: 35px;
+
+    margin-left: 32px;
+
+    background: rgba(255, 255, 255, 0.10);
+}
+
+
+/* ==============================
+   FEATURES SECTION
+================================ */
+
+.features-section {
+    width: 92%;
+
+    max-width: 1250px;
+
+    margin: 80px auto 0;
+
+    padding: 100px 0;
+}
+.feature-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+.feature-card {
+    padding: 30px;
+
+    min-height: 280px;
+
+    background: rgba(255, 255, 255, 0.045);
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    border-radius: 24px;
+
+    transition: 0.35s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-8px);
+
+    background: rgba(255, 255, 255, 0.065);
+
+    border-color: rgba(130, 115, 255, 0.30);
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.25);
+}
+
+.feature-icon {
+    width: 52px;
+    height: 52px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    margin-bottom: 25px;
+
+    border-radius: 15px;
+
+    background: rgba(118, 103, 255, 0.12);
+
+    font-size: 22px;
+}
+
+.feature-card h3 {
+    font-size: 19px;
+
+    margin-bottom: 12px;
+}
+
+.feature-card p {
+    color: rgba(255, 255, 255, 0.48);
+
+    font-size: 13px;
+
+    line-height: 1.7;
+
+    margin-bottom: 25px;
+}
+
+.feature-card a {
+    color: #9d94ff;
+
+    text-decoration: none;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    transition: 0.3s ease;
+}
+
+.feature-card a:hover {
+    color: #ffffff;
+}
+
+
+/* ==============================
+   FOOTER
+================================ */
+
+.footer {
+    width: 92%;
+
+    max-width: 1250px;
+
+    margin: 0 auto;
+
+    padding: 50px 0 25px;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.footer-content {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 30px;
+}
+
+.footer-brand p {
+    margin-top: 10px;
+
+    color: rgba(255, 255, 255, 0.40);
+
+    font-size: 12px;
+}
+
+.footer-links {
+    display: flex;
+
+    gap: 25px;
+}
+
+.footer-links a {
+    color: rgba(255, 255, 255, 0.45);
+
+    text-decoration: none;
+
+    font-size: 12px;
+
+    transition: 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: white;
+}
+
+.footer-bottom {
+    margin-top: 35px;
+
+    padding-top: 20px;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+
+    text-align: center;
+}
+
+.footer-bottom p {
+    color: rgba(255, 255, 255, 0.28);
+
+    font-size: 11px;
+}
+
+
+/* ==============================
+   RESPONSIVE DESIGN
+================================ */
+
+@media (max-width: 900px) {
+
+    .navbar {
+        width: 94%;
+    }
+
+    .nav-links {
+        gap: 18px;
+    }
+
+    .hero {
+        flex-direction: column;
+
+        text-align: center;
+
+        gap: 50px;
+
+        padding-top: 70px;
+
+        padding-bottom: 100px;
+    }
+
+    .hero-content {
+        max-width: 700px;
+
+        margin: 0 auto;
+    }
+
+    .hero-description {
+        margin-left: auto;
+
+        margin-right: auto;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    #summary {
+        margin-left: auto;
+
+        margin-right: auto;
+    }
+
+    .isha-area {
+        width: 360px;
+
+        min-width: 0;
+
+        margin: 0 auto;
+    }
+
+    .feature-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .features-section,
+    .how-it-works {
+        width: 90%;
+    }
+
+    .section-heading {
+        margin-left: auto;
+
+        margin-right: auto;
+
+        text-align: center;
+    }
+
+    .step-content {
+        text-align: left;
+    }
+}
+
+
+/* ==============================
+   MOBILE
+================================ */
+
+@media (max-width: 600px) {
+
+    .navbar {
+        padding: 12px 15px;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .get-started {
+        padding: 10px 14px;
+    }
+
+    .hero {
+        min-height: auto;
+
+        padding-top: 60px;
+
+        padding-bottom: 80px;
+    }
+
+    .hero h1 {
+        font-size: 48px;
+
+        letter-spacing: -2px;
+    }
+
+    .hero-description {
+        font-size: 14px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+    .primary-button,
+    .secondary-button {
+        width: 100%;
+    }
+
+    #summary {
+        width: 100%;
+
+        margin-top: 25px;
+    }
+
+    .summary-card {
+        padding: 20px;
+
+        min-height: 200px;
+
+        max-height: 400px;
+    }
+
+    .summary-content {
+        max-height: 300px;
+
+        font-size: 14px;
+    }
+
+    .isha-area {
+        width: 100%;
+
+        max-width: 360px;
+    }
+
+    .feature-grid {
+        gap: 15px;
+    }
+
+    .feature-card {
+        padding: 25px;
+    }
+
+    .section-heading h2 {
+        font-size: 34px;
+    }
+
+    .cta-section {
+        width: 92%;
+
+        padding: 60px 22px;
+
+        margin-top: 40px;
+
+        margin-bottom: 60px;
+    }
+
+    .cta-section h2 {
+        font-size: 36px;
+    }
+
+    .footer-content {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+    .footer-links {
+        gap: 18px;
+    }
+}
+
+
+/* ==========================================
+   SUMMARY CONTAINER
+========================================== */
+
+#summary {
+    width: 100%;
+    max-width: 780px;
+    margin: 35px auto 0;
+    position: relative;
+    z-index: 5;
+}
+
+
+/* ==========================================
+   SUMMARY CARD
+========================================== */
+
+.summary-card {
+    width: 100%;
+    background: #ffffff;
+    border-radius: 22px;
+    padding: 30px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.15);
+    box-sizing: border-box;
+}
+
+
+/* ==========================================
+   SUMMARY HEADER
+========================================== */
+
+.summary-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding-bottom: 20px;
+    margin-bottom: 22px;
+
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.summary-header h2 {
+    margin: 0;
+
+    font-size: 25px;
+    font-weight: 700;
+
+    color: #171717;
+}
+
+.summary-icon {
+    font-size: 25px;
+}
+
+
+/* ==========================================
+   PDF FILE NAME
+========================================== */
+
+.pdf-name {
+    display: inline-block;
+
+    margin-bottom: 22px;
+
+    padding: 8px 13px;
+
+    border-radius: 8px;
+
+    background: #f3f4f6;
+
+    color: #666666;
+
+    font-size: 13px;
+    font-weight: 500;
+}
+
+
+/* ==========================================
+   SUMMARY CONTENT
+========================================== */
+
+.summary-content {
+    max-height: 600px;
+
+    overflow-y: auto;
+
+    padding-right: 8px;
+
+    color: #333333;
+
+    line-height: 1.7;
+}
+
+
+/* ==========================================
+   EACH SECTION
+========================================== */
+
+.summary-section {
+    margin-bottom: 24px;
+
+    padding: 22px;
+
+    border-radius: 15px;
+
+    background: #f8f9fb;
+
+    border: 1px solid #e8e9ed;
+}
+
+
+/* ==========================================
+   SECTION TITLE
+========================================== */
+
+.section-title {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    margin-bottom: 14px;
+}
+
+.section-title span {
+    font-size: 21px;
+}
+
+.section-title h3 {
+    margin: 0;
+
+    font-size: 19px;
+
+    font-weight: 700;
+
+    color: #171717;
+}
+
+
+/* ==========================================
+   OVERVIEW
+========================================== */
+
+.overview-text {
+    margin: 0;
+
+    font-size: 15px;
+
+    line-height: 1.8;
+
+    color: #444444;
+}
+
+
+/* ==========================================
+   KEY POINTS
+========================================== */
+
+.key-points {
+    margin: 0;
+
+    padding-left: 25px;
+}
+
+.key-points li {
+    margin-bottom: 13px;
+
+    padding-left: 7px;
+
+    font-size: 15px;
+
+    line-height: 1.7;
+
+    color: #333333;
+}
+
+.key-points li:last-child {
+    margin-bottom: 0;
+}
+
+
+/* ==========================================
+   IMPORTANT CONCEPTS
+========================================== */
+
+.concept-list {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 13px;
+}
+
+
+.concept {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 14px;
+
+    padding: 15px;
+
+    background: #ffffff;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 12px;
+}
+
+
+.concept-number {
+    min-width: 30px;
+
+    width: 30px;
+    height: 30px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #eeeeee;
+
+    color: #333333;
+
+    font-size: 13px;
+
+    font-weight: 700;
+}
+
+
+.concept-text {
+    flex: 1;
+}
+
+
+.concept-text p {
+    margin: 0;
+
+    font-size: 15px;
+
+    line-height: 1.7;
+
+    color: #444444;
+}
+
+
+/* ==========================================
+   CONCLUSION
+========================================== */
+
+.summary-section.conclusion {
+    margin-bottom: 0;
+
+    background: #f5f5f7;
+}
+
+
+.conclusion p {
+    margin: 0;
+
+    font-size: 15px;
+
+    line-height: 1.8;
+
+    color: #444444;
+}
+
+
+/* ==========================================
+   LOADING TEXT
+========================================== */
+
+.loading-text {
+    margin: 0;
+
+    font-size: 15px;
+
+    color: #555555;
+
+    line-height: 1.7;
+}
+
+
+/* ==========================================
+   ERROR CARD
+========================================== */
+
+.error-card {
+    border-left: 4px solid #dc3545;
+}
+
+
+/* ==========================================
+   SCROLLBAR
+========================================== */
+
+.summary-content::-webkit-scrollbar {
+    width: 7px;
+}
+
+.summary-content::-webkit-scrollbar-track {
+    background: #f1f1f1;
+
+    border-radius: 10px;
+}
+
+.summary-content::-webkit-scrollbar-thumb {
+    background: #c7c7c7;
+
+    border-radius: 10px;
+}
+
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 768px) {
+
+    #summary {
+        width: 95%;
+    }
+
+    .summary-card {
+        padding: 20px;
+        border-radius: 17px;
+    }
+
+    .summary-header h2 {
+        font-size: 21px;
+    }
+
+    .summary-section {
+        padding: 17px;
+    }
+
+    .section-title h3 {
+        font-size: 17px;
+    }
+
+    .summary-content {
+        max-height: 550px;
+    }
+}
